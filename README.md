@@ -28,7 +28,7 @@ A database is created using PostgreSQL to store user data as well as the financi
 
 Deploying this project has proven to be more complicated than expected, and I am currently still working through it.
 
-2. WORK IN PROGRESS/FUTURE WORKS
+3. WORK IN PROGRESS/FUTURE WORKS
 
 A fair number of components are Works in Progress (as labelled above).
 
@@ -36,7 +36,7 @@ The aesthetics, look and feel are also in progress.
 
 This project is planned to be deployed on AWS, with the database being replaced with dynamodb.
 
-3. LESSONS LEARNED
+4. LESSONS LEARNED
 
 React is a great tool to segment a large project into multiple smaller components, allowing the ability to use them when/where needed. 
 
