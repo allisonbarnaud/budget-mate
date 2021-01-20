@@ -32,6 +32,8 @@ Deploying this project has proven to be more complicated than expected, and I am
 
 A fair number of components are Works in Progress (as labelled above).
 
+The aesthetics, look and feel are also in progress.
+
 This project is planned to be deployed on AWS, with the database being replaced with dynamodb.
 
 3. LESSONS LEARNED
