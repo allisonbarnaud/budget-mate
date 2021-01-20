@@ -3,9 +3,10 @@
     margin-right: auto;
     margin-top: 10px;
     width: 500px;
-    border: 1px dashed black;
+    border: 1px solid black;
     font-size: 18px;
     border-radius: 7px;
+    background-color: white;
 }
 
 .input {

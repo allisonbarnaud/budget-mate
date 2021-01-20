@@ -1,5 +1,9 @@
 # Budget-mate: Finance management made easy
 
+![alt text](./public/transactions.png)
+
+![alt text](./public/pie-chart.png)
+
 parts needed:
 - landing/homepage/dashboard
 - login/signup feature w/ authentication
