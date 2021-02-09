@@ -67,17 +67,17 @@ class Transactions extends Component {
         });
     }
 
-    // showTransactions = () => {
-    //     axios
-    //         .get(`/new_transactions/${id}`)
-    //         .then(result => {
-    //             this.setState({
-    //                 transactions: result.data.data.results
-    //             })
-    //             console.log(result.data.data.results)
-    //         }
-    //         )
-    // }
+    showTransactions = () => {
+        axios
+            .get(`/new_transactions/${id}`)
+            .then(result => {
+                this.setState({
+                    transactions: result.data.data.results
+                })
+                console.log(result.data.data.results)
+            }
+            )
+    }
 
     componentDidMount = () => {
         this.showTransactions()

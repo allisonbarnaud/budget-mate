@@ -2,8 +2,6 @@ const { pool } = require('../db/query.js')
 
 const {docClient} = require('../db/createDataDynamo.js')
 
-const {accessKeyId, secretAccessKey } = require("../src/api/accessKey.json")
-
 // // adding transactions with postgres
 // const addTransaction = (req, res) => {
 //     const { amount, details, date, category, additional, toggle } = req.body.body
@@ -19,7 +17,7 @@ const {accessKeyId, secretAccessKey } = require("../src/api/accessKey.json")
 // adding transactions with Dynamo
 const addTransaction = (req, res) => {
 
-    AWS.config.update({region:"us-east-2", accessKeyId: accessKeyId, secretAccessKey: secretAccessKey});
+    AWS.config.update({region:"us-east-2", accessKeyId: process.env.APP_ID, secretAccessKey: process.env.APP_KEY});
 
     const { amount, details, date, category, additional, toggle } = req.body.body
 
