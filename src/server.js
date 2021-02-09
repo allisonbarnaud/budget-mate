@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 4567
+const port = 4569
 const { addTransaction, getTransactions, createNewUser, getTransactionsForGraph, getTransactionsForPie, getLast5Transactions } = require('./api/api.js')
 
 

@@ -1,16 +1,50 @@
-const express = require('express')
 const { pool } = require('../db/query.js')
 
+const {docClient} = require('../db/createDataDynamo.js')
+
+
+
+// // adding transactions with postgres
+// const addTransaction = (req, res) => {
+//     const { amount, details, date, category, additional, toggle } = req.body.body
+//     const sql = `INSERT INTO transactions (amount, details, transactionDate, category, additionalInfo, user_id, depositWithdraw) VALUES ($1, $2, $3, $4, $5, $6, $7);`
+//     pool.query(sql, [amount, details, date, category, additional, '1', toggle], (err) => {
+//         console.log(err)
+//         res.json({
+//             message: 'successfully added'
+//         })
+//     })
+// }
+
+// adding transactions with Dynamo
 const addTransaction = (req, res) => {
+
+    AWS.config.update({region:"us-east-2", accessKeyId: "AKIAIMW4FAWWZOCPSH7A", secretAccessKey: "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"});
+
     const { amount, details, date, category, additional, toggle } = req.body.body
-    const sql = `INSERT INTO transactions (amount, details, transactionDate, category, additionalInfo, user_id, depositWithdraw) VALUES ($1, $2, $3, $4, $5, $6, $7);`
-    pool.query(sql, [amount, details, date, category, additional, '1', toggle], (err) => {
-        console.log(err)
-        res.json({
-            message: 'successfully added'
-        })
-    })
+
+    var params = {
+        TableName:"transactions",
+        Item:{
+            "amount": amount,
+            "details": details,
+            "date": date,
+            "category": category,
+            "additional": additional,
+            "toggle": toggle
+        }
+    };
+
+    docClient.put(params, function(err, data) {
+        if (err) {
+            console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
+        } else {
+            console.log("Added item:", params.Item.details);
+        }
+    });
 }
+
+
 
 const getTransactions = (req, res) => {
     const { id } = req.params
@@ -85,5 +119,9 @@ const createNewUser = (req, res) => {
     })
     )
 }
+
+
+
+
 
 module.exports = { addTransaction, getTransactions, createNewUser, getTransactionsForGraph, getTransactionsForPie, getLast5Transactions }
